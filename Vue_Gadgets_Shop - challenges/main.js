@@ -7,6 +7,7 @@ const app = Vue.createApp({
       nom: "Smartphone XZ",
       prix: 799,
       image: "./assets/phone.jpg",
+      inStock: true,
     };
   },
 });

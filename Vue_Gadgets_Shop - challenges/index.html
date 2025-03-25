@@ -16,6 +16,9 @@
         <img v-bind:src="image" />
         <h2>{{nom}}</h2>
         <p>{{prix}}€</p>
+
+        <p v-if="inStock">✅ En stock</p>
+        <p v-else>❌ Out of Stock</p>
       </div>
     </div>
     <script src="./main.js"></script>
