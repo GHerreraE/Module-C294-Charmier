@@ -4,6 +4,9 @@ const app = Vue.createApp({
       title: "Vue Gadget Shop",
       description:
         "Découvrez les derniers gadgets électroniques de haute technologie !",
+      nom: "Smartphone XZ",
+      prix: 799,
+      image: "./assets/phone.jpg",
     };
   },
 });
