@@ -27,6 +27,15 @@ const app = Vue.createApp({
           inStock: true,
         },
       ],
+      cart: [],
     };
+  },
+  methods: {
+    addtoCart(gadget) {
+      this.cart.push(gadget);
+    },
+    removeFromCart(index) {
+      this.cart.splice(index, 1);
+    },
   },
 });
