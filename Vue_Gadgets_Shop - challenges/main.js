@@ -31,7 +31,7 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    addtoCart(gadget) {
+    addToCart(gadget) {
       this.cart.push(gadget);
     },
     removeFromCart(index) {
