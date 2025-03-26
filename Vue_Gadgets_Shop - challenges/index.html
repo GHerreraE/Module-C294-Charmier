@@ -14,12 +14,14 @@
       <div class="cart">
         <h2>🛒 Mon Panier {{cart.length}}</h2>
         <ul>
-          <li>
-            Nom du gadget - 10€
-            <button class="remove-btn" v-on:click="removeFromCart()">❌</button>
+          <li v-if="cart.length > 0" v-for="gadget in cart" :key="gadget.id">
+            {{gadget.nom}} - {{gadget.prix}}
+            <button class="remove-btn" v-on:click="removeFromCart(gadget)">
+              ❌
+            </button>
           </li>
+          <li v-else>Votre panier est vide.</li>
         </ul>
-        <p>Votre panier est vide.</p>
       </div>
 
       <div class="gadget-container">
@@ -29,7 +31,7 @@
           <p>{{gadget.prix}}€</p>
           <p v-if="gadget.inStock">✅ En stock</p>
           <p v-else>❌ Out of Stock</p>
-          <button v-if="gadget.inStock" v-on:click="addtoCart()">
+          <button v-if="gadget.inStock" v-on:click="addtoCart(gadget)">
             Ajouter au panier
           </button>
           <button v-else="gadget.inStock" :disabled="!inStock">
