@@ -38,4 +38,18 @@ const app = Vue.createApp({
       this.cart.splice(index, 1);
     },
   },
+  computed: {
+    cartTotal() {
+      let total = 0;
+      for (let gadget of this.cart) {
+        total += gadget.prix;
+      }
+      return total;
+    },
+    discountedTotal() {
+      if (this.cartTotal > 1000) {
+        return this.cartTotal * 0.9;
+      }
+    },
+  },
 });
