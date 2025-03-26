@@ -10,9 +10,10 @@ app.component("gadget-display", {
   <button v-if="gadget.inStock" v-on:click="addToCart(gadget)">
     Ajouter au panier
   </button>
-  <button v-else="gadget.inStock" :disabled="!inStock">
-    Ajouter au panier
-  </button>
+  <button v-else :disabled="!gadget.inStock">
+  Ajouter au panier
+</button>
+
 </div>
     `,
   methods: {

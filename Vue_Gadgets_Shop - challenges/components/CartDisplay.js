@@ -6,6 +6,9 @@ app.component("cart-display", {
         <ul>
           <li v-if="cart.length > 0" v-for="gadget in cart" :key="gadget.id">
             {{gadget.nom}} - {{gadget.prix}}€
+            <button>➖</button>
+            <strong class="qty">{{quantity}}</strong>
+            <button class="plus-btn">➕</button>
             <button class="remove-btn" v-on:click="removeFromCart(gadget)">
               ❌
             </button>
