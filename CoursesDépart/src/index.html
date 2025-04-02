@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ma Liste de Courses</title>
+    <link rel="stylesheet" href="./index.css" />
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <h1>Ma liste de courses</h1>
+    <label for="produit"></label>
+    <input type="text" placeholder="Ajouter un produit" />
+    <button>Ajouter</button>
+    <!-- Script principal -->
+    <script src="./main.js"></script>
+
+    <!-- Composant GroceryItem -->
+    <script src="./components/GroceryItem.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
+  </body>
+</html>
