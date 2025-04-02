@@ -4,14 +4,12 @@ app.component("cart-display", {
   <div class="cart">
         <h2>🛒 Mon Panier {{cart.length}}</h2>
         <ul>
-          <li v-if="cart.length > 0" v-for="gadget in cart" :key="gadget.id">
+        <li v-if="cart.length > 0" v-for="(gadget, index) in cart" :key="gadget.id">
             {{gadget.nom}} - {{gadget.prix}}€
-            <button>➖</button>
-            <strong class="qty">{{quantity}}</strong>
-            <button class="plus-btn">➕</button>
-            <button class="remove-btn" v-on:click="removeFromCart(gadget)">
-              ❌
-            </button>
+            <button @click="decreaseQuantity(index)">➖</button>
+            <strong>{{ gadget.quantity }}</strong>
+            <button @click="increaseQuantity(index)">➕</button>
+            <button class="remove-btn" @click="removeFromCart(index)">❌</button>
           </li>
           <li v-else>Votre panier est vide.</li>
         </ul>
@@ -24,8 +22,18 @@ app.component("cart-display", {
         </h3>
       </div>`,
   methods: {
-    removeFromCart(gadget) {
-      this.$emit("remove-from-cart", this.gadget);
+    removeFromCart(index) {
+      this.$emit("remove-from-cart", index);
+    },
+    increaseQuantity(index) {
+      this.cart[index].quantity++;
+    },
+    decreaseQuantity(index) {
+      if (this.cart[index].quantity > 1) {
+        this.cart[index].quantity--;
+      } else {
+        this.removeItem(index);
+      }
     },
   },
 });

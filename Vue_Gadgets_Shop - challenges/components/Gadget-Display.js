@@ -13,12 +13,24 @@ app.component("gadget-display", {
   <button v-else :disabled="!gadget.inStock">
   Ajouter au panier
 </button>
-
+<!-- Affichage des avis -->
+<h3 v-if="gadget.reviews.length > 0">Avis :</h3>
+<ul v-if="gadget.reviews.length > 0">
+<li v-for="review in gadget.reviews" :key="review.name">
+<strong>{{ review.name }}</strong> - {{ review.rating }}
+<p>{{ review.comment }}</p>
+</li>
+</ul>
+<p v-else>Aucun avis pour ce produit.</p>
+<review-form :gadget="gadget" @add-review="addReview"></review-form>
 </div>
     `,
   methods: {
-    addToCart(gadget) {
+    addToCart() {
       this.$emit("add-to-cart", this.gadget);
+    },
+    addReview(review) {
+      this.gadget.reviews.push(review);
     },
   },
 });
