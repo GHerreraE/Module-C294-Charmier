@@ -1,20 +1,5 @@
 <script setup>
 import EventCard from '@/components/EventCard.vue'
-import { ref } from 'vue'
-import axios from 'axios'
-import EventService from '@/services/EventService.js'
-
-const events = ref([null])
-
-onMounted(() => {
-  EventService.getEvents()
-    .then((response) => {
-      events.value = response.data
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-})
 </script>
 
 <template>
